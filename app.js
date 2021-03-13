@@ -1,7 +1,29 @@
 const linkCategory = document.querySelector("#linkCategory");
 const submitButton = document.querySelector("#submitButton");
+const addBtn = document.querySelector("#addBtn");
+const cancelButton = document.querySelector("#cancelButton");
+const addLinkPanel = document.querySelector("#addLinkPanel")
+
 let linkCategories = [];
 let links = [];
+
+addBtn.addEventListener('click', (event) => {
+    showFromPanel();
+})
+
+cancelButton.addEventListener('click', (event) => {
+    event.preventDefault();
+    hideFromPanel();
+})
+
+function showFromPanel(){
+    addLinkPanel.classList.remove("hidden");
+
+}
+
+function hideFromPanel(){
+    addLinkPanel.classList.add("hidden");
+}
 
 linkCategory.addEventListener('keydown', function(event) {
     if (event.keyCode == 188) {
@@ -34,7 +56,8 @@ submitButton.addEventListener('click', (event) => {
     linkCategory.value = "";
     linkCategories = [];
     displayLinkCategories();
+    hideFromPanel();
 
-    console.log("links " + links);
+
 })
 
