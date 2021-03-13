@@ -138,7 +138,6 @@ input[type="submit"]:hover, button:hover {
 	position: absolute;
 	top: 5px;
 	right: 5px;
-
 }
 
 .link-date {
@@ -146,9 +145,14 @@ input[type="submit"]:hover, button:hover {
 	font-style: italic;
 }
 
+#addedCategories {
+	margin-bottom: 15px;
+}
+
 .category {
 	font-weight: bold;
 	padding: 5px;
+	margin: 5px 2px;
 	border: 1px solid var(--main-accent);
 	border-radius: 5px;
 	font-size: 10px;
