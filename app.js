@@ -5,6 +5,7 @@ const cancelButton = document.querySelector("#cancelButton");
 const addLinkPanel = document.querySelector("#addLinkPanel")
 const addedCategories = document.querySelector("#addedCategories")
 const linksList = document.querySelector("#linksList")
+const addLinkContainer = document.querySelector("#addLinkContainer")
 
 let editIndex = -1;
 let linkCategories = [];
@@ -27,12 +28,12 @@ cancelButton.addEventListener('click', (event) => {
 })
 
 function showFromPanel(){
-    addLinkPanel.classList.remove("hidden");
+    addLinkContainer.classList.remove("hidden");
     displayLinkCategories();
 }
 
 function hideFromPanel(){
-    addLinkPanel.classList.add("hidden");
+    addLinkContainer.classList.add("hidden");
     clearLinkForm();
 }
 
