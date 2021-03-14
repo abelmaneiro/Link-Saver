@@ -3,9 +3,10 @@ const submitButton = document.querySelector("#submitButton");
 const addBtn = document.querySelector("#addBtn");
 const cancelButton = document.querySelector("#cancelButton");
 const addLinkPanel = document.querySelector("#addLinkPanel")
-const linksList = document.querySelector("#linksList")
 const addedCategories = document.querySelector("#addedCategories")
+const linksList = document.querySelector("#linksList")
 
+let editIndex = -1;
 let linkCategories = [];
 let links = [
     { title: 'New Link 1', url: 'url1.com', categories:['node', 'angular']},
@@ -27,7 +28,7 @@ cancelButton.addEventListener('click', (event) => {
 
 function showFromPanel(){
     addLinkPanel.classList.remove("hidden");
-
+    displayLinkCategories();
 }
 
 function hideFromPanel(){
@@ -58,6 +59,7 @@ function clearLinkForm() {
     linkCategory.value = "";
     linkCategories = [];
     addedCategories.innerHTML = "";
+    editIndex = -1;
 }
 
 submitButton.addEventListener('click', (event) => {
@@ -72,8 +74,13 @@ submitButton.addEventListener('click', (event) => {
         url,  // short way of doing above, JS implies url: url
         categories
     }
-    links.unshift(newLink)
-    clearLinkForm();
+    if (editIndex === -1 ) {
+        links.unshift(newLink)
+        clearLinkForm();
+    } else {
+        links[editIndex] = newLink;
+        editIndex = -1;
+    }
     
     displayLinkCategories();
     hideFromPanel();
@@ -113,5 +120,9 @@ function deleteLink(index) {
 }
 
 function editLink(index) {
-    console.log("Edit ", index)
+    editIndex = index;
+    linkTitle.value = links[index].title;
+    linkUrl.value = links[index].url;
+    linkCategories = links[index].categories;
+    showFromPanel();
 }
