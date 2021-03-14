@@ -92,6 +92,7 @@ function displayLinks() {
     let index = 0;
     for (let link of links) {
         let linkHTMLString = `
+        <div class="flex-item">
             <div class="link panel">
 			    <div class="link-options">
 				    <button class="btn-sm" onclick="deleteLink(${index})">Delete</button>
@@ -107,8 +108,9 @@ function displayLinks() {
             linkHTMLString += `<span class="category">${category}</span>`;
         }
         linkHTMLString += `
-			        </div>
-		    </div>`;
+			    </div>
+		    </div>
+        </div>`;
         linksList.innerHTML += linkHTMLString;
         index++;
     }
