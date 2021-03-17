@@ -10,9 +10,24 @@ const addLinkContainer = document.querySelector("#addLinkContainer")
 let editIndex = -1;
 let linkCategories = [];
 let links = [
-    { title: 'New Link 1', url: 'url1.com', categories:['node', 'angular']},
-    { title: 'New Link 2', url: 'url2.com', categories:['js', 'angular']},
-    { title: 'New Link 3', url: 'url3.com', categories:['node', 'bootstrap']},
+    {
+		title: 'Wes Bos Courses',
+		url: 'http://wesbos.com/courses/',
+		categories: ['Node', 'ES6', 'Flexbox', 'React'],
+		date: new Date()
+	},
+	{
+		title: 'Traversy Media',
+		url: 'https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA',
+		categories: ['Node', 'CSS', 'Javscript', 'Angular'],
+		date: new Date()
+	},
+	{
+		title: 'Colt Steele',
+		url: 'https://www.udemy.com/user/coltsteele/',
+		categories: ['Node', 'Javascript', 'React', 'MEAN', 'Mongo'],
+		date: new Date()
+	},
 ];
 
 displayLinks()
