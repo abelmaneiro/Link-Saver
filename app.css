@@ -184,6 +184,10 @@ input[type="submit"]:hover, button:hover {
 	position: relative;
 }
 
+.link:hover {
+	box-shadow: 0 0 3px var(--main-accent);
+}
+
 #linksList {
 	display: flex;
 	flex-wrap: wrap;
@@ -235,8 +239,16 @@ input[type="submit"]:hover, button:hover {
 /* Animations */
 /* ------------------------- */
 @keyframes slide-down {
-    0% { transform: translateY(-1000px); }
-    90% { transform: translateY(25px); }
-    95% { transform: translateY(-10px); } 
-    100% { transform: translateY(0px); }
+    0% { 
+		transform: translateY(-1000px); 
+	}
+    90% { 
+		transform: translateY(25px); 
+	}
+    95% { 
+		transform: translateY(-10px); 
+	} 
+    100% { 
+		transform: translateY(0px); 
+	}
 }

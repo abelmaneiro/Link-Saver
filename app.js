@@ -88,7 +88,9 @@ submitButton.addEventListener('click', (event) => {
     const newLink = {
         title: title,
         url,  // short way of doing above, JS implies url: url
-        categories
+        categories,
+        date: new Date()
+
     }
     if (editIndex === -1 ) {
         links.unshift(newLink)
@@ -117,7 +119,7 @@ function displayLinks() {
 			    <a href="${link.url}">
 				    <h1 class="header">${link.title}</h1>
 		    	</a>
-			    <p class="link-date">${Date.now()}</p>
+			    <p class="link-date">${formatDate(link.date)}</p>
 			    <div class="categories">
 			    	Categories:`;
         for (let category of link.categories) {
@@ -143,4 +145,8 @@ function editLink(index) {
     linkUrl.value = links[index].url;
     linkCategories = links[index].categories;
     showFromPanel();
+}
+
+function formatDate(date) {
+    return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
 }
