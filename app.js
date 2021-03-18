@@ -10,9 +10,24 @@ const addLinkContainer = document.querySelector("#addLinkContainer")
 let editIndex = -1;
 let linkCategories = [];
 let links = [
-    { title: 'New Link 1', url: 'url1.com', categories:['node', 'angular']},
-    { title: 'New Link 2', url: 'url2.com', categories:['js', 'angular']},
-    { title: 'New Link 3', url: 'url3.com', categories:['node', 'bootstrap']},
+    {
+		title: 'Wes Bos Courses',
+		url: 'http://wesbos.com/courses/',
+		categories: ['Node', 'ES6', 'Flexbox', 'React'],
+		date: new Date()
+	},
+	{
+		title: 'Traversy Media',
+		url: 'https://www.youtube.com/channel/UC29ju8bIPH5as8OGnQzwJyA',
+		categories: ['Node', 'CSS', 'Javscript', 'Angular'],
+		date: new Date()
+	},
+	{
+		title: 'Colt Steele',
+		url: 'https://www.udemy.com/user/coltsteele/',
+		categories: ['Node', 'Javascript', 'React', 'MEAN', 'Mongo'],
+		date: new Date()
+	},
 ];
 
 displayLinks()
@@ -73,7 +88,9 @@ submitButton.addEventListener('click', (event) => {
     const newLink = {
         title: title,
         url,  // short way of doing above, JS implies url: url
-        categories
+        categories,
+        date: new Date()
+
     }
     if (editIndex === -1 ) {
         links.unshift(newLink)
@@ -102,7 +119,7 @@ function displayLinks() {
 			    <a href="${link.url}">
 				    <h1 class="header">${link.title}</h1>
 		    	</a>
-			    <p class="link-date">${Date.now()}</p>
+			    <p class="link-date">${formatDate(link.date)}</p>
 			    <div class="categories">
 			    	Categories:`;
         for (let category of link.categories) {
@@ -128,4 +145,8 @@ function editLink(index) {
     linkUrl.value = links[index].url;
     linkCategories = links[index].categories;
     showFromPanel();
+}
+
+function formatDate(date) {
+    return `${date.getFullYear()}-${("0" + (date.getMonth() + 1)).slice(-2)}-${("0" + date.getDate()).slice(-2)}`
 }
